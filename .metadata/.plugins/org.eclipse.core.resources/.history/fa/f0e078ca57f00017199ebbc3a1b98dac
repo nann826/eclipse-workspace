@@ -1,0 +1,21 @@
+package al.db;
+
+import java.util.ArrayList;
+
+public class CollectTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		//Collect- List/Set 
+		//ArrayList
+		ArrayList<String> aList= new ArrayList<String>();
+		aList.add("1");
+		aList.add( "three");
+		aList.add("second");
+		System.out.println(aList);
+		System.out.println(aList.size());
+		
+
+	}
+
+}

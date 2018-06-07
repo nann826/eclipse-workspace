@@ -1,0 +1,6 @@
+INDEX VERSION 1.130+D:\Alisa\eclipse-workspace\.metadata\.plugins\org.eclipse.jdt.core
+745592580.index
+2441013634.index
+118626254.index
+4063911043.index
+1317485014.index

@@ -1,0 +1,71 @@
+package com;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
+/**
+ * @author alisajin
+ * 
+ */
+
+public class FileUtils {
+	
+	/**
+	 * copy - plain text file
+	 *  π”√BufferedReader and BufferedWriter
+	 */
+
+	public void copyFile(String srcPath,String datePath ) {
+		BufferedReader br = null;
+		BufferedWriter wr = null;
+		try {
+			br = new BufferedReader(new FileReader(srcPath));
+			wr = new BufferedWriter(new FileWriter(datePath));
+			
+			String line = "";
+			while((line = br.readLine()) != null) {
+				wr.write(line);
+				wr.flush();
+				wr.newLine();
+				System.out.println(line);
+			}
+			
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			if(br != null) {
+				try {
+					br.close();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			if(wr != null){
+				try {
+					wr.close();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}	
+	}
+	
+	public static void main(String[] args) {
+		String src = "D:\\srcfile.txt";
+		String src2 = "D:\\copyfile.txt";
+		
+		FileUtils fu = new FileUtils();
+		fu.copyFile(src, src2);
+	}
+	
+}

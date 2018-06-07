@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.lisa.InetAddressTest&apos; to &apos;InetAddressDemo&apos;&#x0D;&#x0A;- Original project: &apos;SocketProject&apos;&#x0D;&#x0A;- Original element: &apos;com.lisa.InetAddressTest&apos;&#x0D;&#x0A;- Renamed element: &apos;com.lisa.InetAddressDemo&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;InetAddressTest&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;com.lisa{InetAddressTest.java[InetAddressTest" matchStrategy="1" name="InetAddressDemo" qualified="false" references="true" similarDeclarations="false" stamp="1528254541486" textual="false" version="1.0"/>
+</session>

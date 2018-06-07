@@ -1,0 +1,38 @@
+package com;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+/**
+ * @author alisajin
+ * InputStream 输入字节流   OutputStream 输出字节流    基类，所有字节流都继承这两个基类
+ * -- FileInputStream 和 FileOutputStream  
+ * -- ByteArrayInputStream、StringBufferInputStream、FileInputStream 是三种基本的介质流，它们分别从Byte 数组、StringBuffer、和本地文件中读取数据。
+ */
+public class InputStreamDemo {
+
+
+	public static void main(String[] args) {
+		String str = "This is a InputStream Test.";
+		Byte a =1;
+		
+		try {
+			FileInputStream is = new FileInputStream(str);
+			
+			is.read(str.getBytes());
+			System.out.println(is.read());
+			
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+	}
+
+}
