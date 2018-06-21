@@ -1,0 +1,77 @@
+package com.thread;
+
+public class ProducerConsumer {
+12     public static void main(String args[]){
+13             SyncStack stack = new SyncStack();
+14             Runnable p=new Producer(stack);
+15             Runnable c = new Consumer(stack);
+16             Thread p1 = new Thread(p);
+17             Thread c1 = new Thread(c);
+18             
+19             p1.start();
+20             c1.start();
+21     }
+22 }
+23 
+24 
+25 class SyncStack{  //支持多线程同步操作的堆栈的实现
+26     private int index = 0;
+27     private char []data = new char[6];    
+28     public synchronized void push(char c){
+29         if(index == data.length){
+30         try{
+31                 this.wait();
+32         }catch(InterruptedException e){}
+33         }
+34         this.notify();
+35         data[index] = c;
+36         index++;
+37     }
+38     public synchronized char pop(){
+39         if(index ==0){
+40             try{
+41                 this.wait();
+42             }catch(InterruptedException e){}
+43         }
+44         this.notify();
+45         index--;
+46         return data[index];
+47     }
+48 }
+49 
+50 
+51 class  Producer implements Runnable{
+52     SyncStack stack;    
+53     public Producer(SyncStack s){
+54         stack = s;
+55     }
+56     public void run(){
+57         for(int i=0; i<20; i++){
+58             char c =(char)(Math.random()*26+'A');
+59             stack.push(c);
+60             System.out.println("produced："+c);
+61             try{                                    
+62                 Thread.sleep((int)(Math.random()*1000)); 
+63             }catch(InterruptedException e){
+64             }
+65         }
+66     }
+67 }
+68 
+69 
+70 class Consumer implements Runnable{
+71     SyncStack stack;    
+72     public Consumer(SyncStack s){
+73         stack = s;
+74     }
+75     public void run(){
+76         for(int i=0;i<20;i++){
+77             char c = stack.pop();
+78             System.out.println("消费："+c);
+79             try{                                       
+80                 Thread.sleep((int)(Math.random()*1000));
+81             }catch(InterruptedException e){
+82             }
+83         }
+84     }
+85 }
